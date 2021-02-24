@@ -31,10 +31,10 @@ private:
     const int mNumBase = 20;
 
     int xOff = 50;
-    int yOff = 400;
+    int yOff = 250;
 
     int mTotalXWidth = 100;
-    int mTotalYHeight = 360;
+    int mTotalYHeight = 400;
 
     std::vector<int> PlaceValues {0, 0, 0, 0};
 

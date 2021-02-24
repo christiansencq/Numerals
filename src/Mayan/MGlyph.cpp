@@ -52,7 +52,7 @@ void MGlyph::drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY)
     }
     else 
     {
-        for (int i = 0; i < fives; i++)
+        for (int i = 1; i <= fives; i++)
         {
             //xOff is just center it within the element, y is to skip over the Ones.
             SDL_Rect fillRect {xOff + 10, yOff + yPlacePos + (i * 20) + 40, 80, 15};
@@ -60,7 +60,7 @@ void MGlyph::drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY)
             SDL_RenderFillRect(mnoRenderer, &fillRect);
         }
 
-        for (int i = 0; i < ones; i++)
+        for (int i = 1; i <= ones; i++)
         {
             SDL_Rect fillRect {xOff + (20 * i), yOff + yPlacePos, 10, 10};
             SDL_SetRenderDrawColor(mnoRenderer, 0xBB, 0xFF, 0x33, 0xFF);
@@ -72,8 +72,8 @@ void MGlyph::drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY)
 void MGlyph::drawZero(SDL_Renderer* renderer, int yPos)
 {
     SDL_SetRenderDrawColor(mnoRenderer, 0x33, 0x1B, 0xEE, 0xFF);
-    SDL_RenderDrawLine(mnoRenderer, 50 + xOff, 50 + yOff + yPos, 
-                                    100 + xOff, 100 + yOff + yPos);
-    SDL_RenderDrawLine(mnoRenderer,  50 + xOff, 100 + yOff + yPos, 
-                                     100 + xOff, 50 + yOff + yPos);
+    SDL_RenderDrawLine(mnoRenderer, 25 + xOff, 25 + yOff + yPos, 
+                                    75 + xOff, 75 + yOff + yPos);
+    SDL_RenderDrawLine(mnoRenderer,  25 + xOff, 75 + yOff + yPos, 
+                                     75 + xOff, 25 + yOff + yPos);
 }
