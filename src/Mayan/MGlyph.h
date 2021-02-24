@@ -42,9 +42,9 @@ private:
 
     std::map<std::string, int> PlaceValueY
     {
-        {"ONES", 270},
-        {"TWENTIES", 180},
-        {"FOUR_HUNDREDS", 90},
+        {"ONES", 300},
+        {"TWENTIES", 200},
+        {"FOUR_HUNDREDS", 100},
         {"EIGHT_THOUSANDS", 0}
     };
 };
