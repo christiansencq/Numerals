@@ -1,0 +1,33 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "cppbuild",
+			"label": "C/C++: g++ build active file",
+			"command": "/usr/bin/g++",
+			"args": [
+				"-ggdb",
+				"${workspaceFolder}/src/**.cpp",
+				"${workspaceFolder}/src/Cistercian/**.cpp",
+				"${workspaceFolder}/src/Kaktovik/**.cpp",
+				"${workspaceFolder}/src/Mayan/**.cpp",
+				"${workspaceFolder}/src/Shapes/**.cpp",
+				"${workspaceFolder}/src/Utils/**.cpp",
+				"-o",
+				"${fileDirname}/${fileBasenameNoExtension}",
+				"-lSDL2",
+				"-lSDL2main",
+				"-lSDL2_image",
+				"-lSDL2_ttf"
+			],
+			"options": {
+				"cwd": "${workspaceFolder}"
+			},
+			"problemMatcher": [
+				"$gcc"
+			],
+			"group": "build",
+			"detail": "compiler: /usr/bin/g++"
+		}
+	]
+}
