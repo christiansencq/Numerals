@@ -4,16 +4,15 @@ NumeralState::NumeralState(SDL_Renderer* renderer) : mnoptrrenderer(renderer)
 {
     //mFontTexture = std::make_unique<FontText>();
     srand(time(0));
-    int randnum = rand() % 9999 + 1;
-    mNum = 340;
-    randnum = 340;
+    mNum = rand() % 9999 + 1;
+    
     mFontTexture = new TextObject();
 
-    mCisGlyph = std::make_unique<CGlyph>(randnum, 500, 100);
+    mCisGlyph = std::make_unique<CGlyph>(mNum, 500, 100);
 
-    mKakGlyph = std::make_unique<KGlyph>(randnum, 10, 10);
+    mKakGlyph = std::make_unique<KGlyph>(mNum, 10, 10);
 
-    mMayGlyph = std::make_unique<MGlyph>(randnum, 100, 500);
+    mMayGlyph = std::make_unique<MGlyph>(mNum, 100, 500);
 
     if (!loadFont())
     {
