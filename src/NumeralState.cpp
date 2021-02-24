@@ -26,6 +26,13 @@ NumeralState::~NumeralState()
     mFontTexture->free();
     delete mFontTexture;
     mFontTexture = nullptr;
+
+    if (mNumFont != nullptr)
+    {
+        TTF_CloseFont(mNumFont);
+        mNumFont = nullptr;
+    }
+
 }
 
 bool NumeralState::loadFont()
