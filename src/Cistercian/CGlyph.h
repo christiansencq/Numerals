@@ -1,6 +1,6 @@
 #pragma once
 
-#include "SDL2/SDL.h"
+#include <SDL2/SDL.h>
 #include "../Shapes/Line2D.h"
 #include "../Utils/Coords2D.h"
 #include <vector>

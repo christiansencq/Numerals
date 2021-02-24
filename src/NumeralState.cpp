@@ -26,12 +26,6 @@ NumeralState::~NumeralState()
     delete mFontTexture;
     mFontTexture = nullptr;
 
-    if (mNumFont != nullptr)
-    {
-        TTF_CloseFont(mNumFont);
-        mNumFont = nullptr;
-    }
-
 }
 
 bool NumeralState::loadFont()
@@ -53,6 +47,7 @@ bool NumeralState::loadFont()
             printf("Failed to render text texture!\n");
             success = false;
         }
+        TTF_CloseFont(mNumFont);
     }
     return success;
 }
