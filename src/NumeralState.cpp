@@ -5,8 +5,9 @@ NumeralState::NumeralState(SDL_Renderer* renderer) : mnoptrrenderer(renderer)
     //mFontTexture = std::make_unique<FontText>();
     srand(time(0));
     mNum = rand() % 9999 + 1;
-    
-    mFontTexture = new TextObject();
+    mNumStr = std::to_string(mNum);
+
+    mFontTexture = std::make_unique<TextObject>(renderer, mNumStr);
 
     mCisGlyph = std::make_unique<CGlyph>(mNum, 500, 100);
 
@@ -23,9 +24,6 @@ NumeralState::NumeralState(SDL_Renderer* renderer) : mnoptrrenderer(renderer)
 NumeralState::~NumeralState()
 {
     mFontTexture->free();
-    delete mFontTexture;
-    mFontTexture = nullptr;
-
 }
 
 bool NumeralState::loadFont()
@@ -42,7 +40,7 @@ bool NumeralState::loadFont()
     else
     {
         SDL_Color textColor = { 0, 55, 0 };
-        if ( !mFontTexture->loadFromRenderedText(mnoptrrenderer, mNumFont, mNum, textColor))
+        if ( !mFontTexture->loadFromRenderedText(mnoptrrenderer, mNumFont, mNumStr, textColor))
         {
             printf("Failed to render text texture!\n");
             success = false;

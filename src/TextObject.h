@@ -11,14 +11,13 @@
 class TextObject 
 {
 public:
-    TextObject();
+    TextObject(SDL_Renderer* renderer, std::string text);
     ~TextObject();
 
     bool loadFont();
     bool loadFromRenderedText( SDL_Renderer* renderer, TTF_Font* font, std::string textureText, SDL_Color textColor);
-    bool loadFromRenderedText( SDL_Renderer* renderer, TTF_Font* font, int number, SDL_Color textColor);
+    //bool loadFromRenderedText( SDL_Renderer* renderer, TTF_Font* font, int number, SDL_Color textColor);
     void free();
-
 
     void render( SDL_Renderer* renderer, int x, int y, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE );
 
@@ -26,10 +25,15 @@ public:
     int getHeight() { return mHeight; }
 
 private:
-    SDL_Texture* mTexture;
-    SDL_Surface* textSurface;
+    SDL_Texture* mTexture;//Texture to render
+    SDL_Surface* textSurface;//Surface to render on
+    
+    std::string mText; //Actual words/characters that will be displayed.
+    
     int mWidth;
     int mHeight;
 
+    TTF_Font* mFont;
+    SDL_Renderer* mnoptrRenderer;
     //TTF_Font* font = NULL;
 };

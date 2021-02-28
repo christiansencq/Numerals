@@ -1,6 +1,7 @@
 #pragma once
 
 #include <memory>
+#include <string>
 
 #include "Cistercian/CGlyph.h"
 #include "Kaktovik/KGlyph.h"
@@ -27,15 +28,17 @@ public:
 
 private:
     int mNum;
+    std::string mNumStr;
     std::unique_ptr<CGlyph> mCisGlyph;
     std::unique_ptr<KGlyph> mKakGlyph;
     std::unique_ptr<MGlyph> mMayGlyph;
 
     //Text & Font
     TTF_Font* mNumFont = nullptr;
-    TextObject* mFontTexture = nullptr;
+//    TextObject* mFontTexture = nullptr;
+    std::unique_ptr<TextObject> mFontTexture = nullptr;
 
-    //Positional vars.
+    //Positional vars.?? IDK what this is.
     int xPos;
     int yPos;
 
