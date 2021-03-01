@@ -8,30 +8,34 @@
 
 using LineVec = std::vector<Line2D>;
 
+class Glyph;
+
 class CGlyph : public Glyph
 {
 public:
     CGlyph();
     CGlyph(int number);
     CGlyph(int number, int xPos, int yPos);
+    ~CGlyph() {}
 
     void findPlaceValues(int base);
 
     void draw(SDL_Renderer* renderer) override;
 
-    void drawElement(SDL_Renderer* renderer, std::vector<Line2D>& glyph);
+    void drawPlaceValue(SDL_Renderer* renderer, LineVec& glyph);
     void drawBkgd(SDL_Renderer* renderer);
+    void drawZero(SDL_Renderer* renderer, int PosOffset) {} 
 
     LineVec digitToElement(int digit);
 
-    void orientPlaceValues();
+    void orientPlaceValues() {}
     void flipHoriz(LineVec& glyph);
     void flipVert(LineVec& glyph);
 
 
 
 private:
-    int mNumber;
+    int mNum;
 
     //Drawing Params
     float mGlyphScalar = 100; 

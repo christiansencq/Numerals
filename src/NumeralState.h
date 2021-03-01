@@ -3,6 +3,7 @@
 #include <memory>
 #include <string>
 
+#include "Glyphs/Glyph.h"
 #include "Glyphs/CGlyph.h"
 #include "Glyphs/KGlyph.h"
 #include "Glyphs/MGlyph.h"
@@ -21,7 +22,7 @@ public:
     void update() override;
     void render(SDL_Renderer* renderer) override;
 
-    bool loadFont();
+    bool loadFont();//Add a fontname parameter
 
     //Scaling vars
     static const int CGlyphscalar = 100;
@@ -38,9 +39,5 @@ private:
 //    TextObject* mFontTexture = nullptr;
     std::unique_ptr<TextObject> mFontTexture = nullptr;
 
-    //Positional vars.?? IDK what this is.
-    int xPos;
-    int yPos;
-
-    SDL_Renderer* mnoptrrenderer;//Not owned, the renderer is from App
+    SDL_Renderer* mnoptrrenderer;//Not owned, the renderer is from App; its passed in!
 };

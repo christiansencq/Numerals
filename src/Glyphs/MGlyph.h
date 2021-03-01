@@ -6,7 +6,7 @@
 
 using LineVec = std::vector<Line2D>;
 
-
+class Glyph;
 
 class MGlyph : public Glyph
 {
@@ -15,10 +15,12 @@ public:
     MGlyph(int number);
     MGlyph(int number, int xPos, int yPos);
 
+    ~MGlyph() {}
+
     void findPlaceValues(int base) override;
 
     void draw(SDL_Renderer* renderer) override;
-    void drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY) override;
+    void drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY);
     void drawBkgd(SDL_Renderer* renderer) override;
     void drawZero(SDL_Renderer* renderer, int yPos) override;
 

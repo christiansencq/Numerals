@@ -8,11 +8,6 @@
 			"args": [
 				"-ggdb",
 				"${workspaceFolder}/src/**.cpp",
-				"${workspaceFolder}/src/Cistercian/**.cpp",
-				"${workspaceFolder}/src/Kaktovik/**.cpp",
-				"${workspaceFolder}/src/Mayan/**.cpp",
-				"${workspaceFolder}/src/Shapes/**.cpp",
-				"${workspaceFolder}/src/Utils/**.cpp",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
 				"-lSDL2",

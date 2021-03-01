@@ -11,10 +11,10 @@ void CGlyph::draw(SDL_Renderer* renderer)
     SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0xFF, 0xFF);
     SDL_RenderDrawLine(renderer, 100, 0, 100, 300);
 
-    int thousands = mNumber / 1000;
-    int hundreds = mNumber / 100;
-    int tens = mNumber / 10;
-    int ones = mNumber % 10;
+    int thousands = mNum / 1000;
+    int hundreds = mNum / 100;
+    int tens = mNum / 10;
+    int ones = mNum % 10;
     
     std::vector<Line2D>::iterator it;
 

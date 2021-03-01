@@ -5,14 +5,16 @@ MGlyph::MGlyph() : MGlyph(10)
 {
 }
 
-MGlyph::MGlyph(int number) : MGlyph(number, 100, 100)
-{
-}
-
 MGlyph::MGlyph(int number, int xPos, int yPos) : mNumber(number), xOff(xPos), yOff(yPos)
 {
     findPlaceValues(mNumBase);
 }
+
+MGlyph::MGlyph(int number) : MGlyph(number, 100, 100)
+{
+}
+
+
 
 void MGlyph::draw(SDL_Renderer* renderer) 
 {

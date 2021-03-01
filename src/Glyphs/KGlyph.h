@@ -1,10 +1,10 @@
 #pragma once
 
-
-
 #include "Glyph.h"
 
 using LineVec = std::vector<Line2D>;
+
+class Glyph;
 
 class KGlyph : public Glyph
 {
@@ -12,11 +12,12 @@ public:
     KGlyph();
     KGlyph(int number);
     KGlyph(int number, int xPos, int yPos);
+    ~KGlyph() {}
 
     void draw(SDL_Renderer* renderer) override;
 
     void findPlaceValues(int base) override;
-    void drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY);
+    void drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY) override;
     void drawBkgd(SDL_Renderer* renderer) override;
     void drawZero(SDL_Renderer* renderer, int xPos) override;
 

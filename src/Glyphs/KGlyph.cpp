@@ -5,15 +5,16 @@ KGlyph::KGlyph() : KGlyph(10)
 
 }
 
+KGlyph::KGlyph(int number, int xPos, int yPos) : mNumber(number), xOff(xPos), yOff(yPos)
+{
+    findPlaceValues(mNumBase);
+}
+
 KGlyph::KGlyph(int number) : KGlyph(number, 100, 100)
 {
 
 }
 
-KGlyph::KGlyph(int number, int xPos, int yPos) : mNumber(number), xOff(xPos), yOff(yPos)
-{
-    findPlaceValues(mNumBase);
-}
 
 void KGlyph::draw(SDL_Renderer* renderer) 
 {

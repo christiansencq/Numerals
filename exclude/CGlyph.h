@@ -7,7 +7,7 @@ class CGlyph
 {
 public:
     CGlyph() : CGlyph(42) {}
-    CGlyph(int number) : mNumber(number) {}
+    CGlyph(int number) : mNum(number) {}
 
     void draw(SDL_Renderer* renderer);
 
@@ -19,7 +19,7 @@ public:
     std::vector<Line2D> makeThous(std::vector<Line2D> lines);
 
 private:
-    int mNumber;
+    int mNum;
 
     int xMidline = 100;
     int yMidline = 150;

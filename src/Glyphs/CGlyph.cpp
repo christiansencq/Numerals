@@ -5,28 +5,28 @@
 
 CGlyph::CGlyph() : CGlyph(2475) 
 {
-    std::cout << "number(NOT CALLED?) : " << mNumber << std::endl;
+    std::cout << "number (NOT CALLED?) : " << mNum << std::endl;
+}
+
+CGlyph::CGlyph(int number, int xPos, int yPos) : mNum(number), xOff(xPos), yOff(yPos)
+{
+    findPlaceValues(mNum);
+    std::cout << "number : " << mNum << std::endl;
 }
 
 CGlyph::CGlyph(int number) : CGlyph(number, 50, 50)
 {
-    std::cout << "number(NOT CALLED?) : " << mNumber << std::endl;
-}
-
-CGlyph::CGlyph(int number, int xPos, int yPos) : mNumber(number), xOff(xPos), yOff(yPos)
-{
-    findPlaceValues(mNumber);
-    std::cout << "number : " << mNumber << std::endl;
+    std::cout << "number (NOT CALLED?) : " << mNum << std::endl;
 }
 
 void CGlyph::draw(SDL_Renderer* renderer)
 {
     drawBkgd(renderer);
 
-    drawElement(renderer, onesElement);
-    drawElement(renderer, tensElement);
-    drawElement(renderer, hundsElement);
-    drawElement(renderer, thousElement);
+    drawPlaceValue(renderer, onesElement);
+    drawPlaceValue(renderer, tensElement);
+    drawPlaceValue(renderer, hundsElement);
+    drawPlaceValue(renderer, thousElement);
 }
 
 void CGlyph::drawBkgd(SDL_Renderer* renderer)
@@ -41,7 +41,7 @@ void CGlyph::drawBkgd(SDL_Renderer* renderer)
     SDL_RenderDrawLine(renderer, 100 + xOff, 0 + yOff, 100 + xOff, 300 + yOff);
 }
 
-void CGlyph::drawElement(SDL_Renderer* renderer, LineVec& glyph)
+void CGlyph::drawPlaceValue(SDL_Renderer* renderer, LineVec& glyph)
 {
     SDL_SetRenderDrawColor(renderer, 0x00, 0xAA, 0xFF, 0xFF);
 
@@ -53,10 +53,10 @@ void CGlyph::drawElement(SDL_Renderer* renderer, LineVec& glyph)
 
 void CGlyph::findPlaceValues(int base)
 {
-    thousElement = digitToElem[mNumber / base*base*base];
-    hundsElement = digitToElem[(mNumber / base*base) % base];
-    tensElement = digitToElem[(mNumber / base) % base];
-    onesElement = digitToElem[mNumber % base];
+    thousElement = digitToElem[mNum / base*base*base];
+    hundsElement = digitToElem[(mNum / base*base) % base];
+    tensElement = digitToElem[(mNum / base) % base];
+    onesElement = digitToElem[mNum % base];
 
     flipHoriz(tensElement);
     flipVert(hundsElement);
