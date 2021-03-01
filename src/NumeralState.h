@@ -3,9 +3,9 @@
 #include <memory>
 #include <string>
 
-#include "Cistercian/CGlyph.h"
-#include "Kaktovik/KGlyph.h"
-#include "Mayan/MGlyph.h"
+#include "Glyphs/CGlyph.h"
+#include "Glyphs/KGlyph.h"
+#include "Glyphs/MGlyph.h"
 #include "State.h"
 #include "App.h"
 #include "TextObject.h"
