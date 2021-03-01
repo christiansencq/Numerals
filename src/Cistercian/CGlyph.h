@@ -2,10 +2,8 @@
 
 #include <SDL2/SDL.h>
 #include "../Shapes/Line2D.h"
-#include "../Utils/Coords2D.h"
 #include <vector>
 #include <array>
-#include <map>
 
 //Rename the sub-glyphs to 'Elements'
 //I.E. if referring to one of four quadrants.

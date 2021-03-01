@@ -1,7 +1,5 @@
 #pragma once
 
-#include <cmath>
-#include "../Utils/Utilities.h"
 #include "../Utils/Coords2D.h"
 
 class Line2D

@@ -2,12 +2,9 @@
 
 #include "SDL2/SDL.h"
 #include "../Shapes/Line2D.h"
-#include "../Utils/Coords2D.h"
 
 #include <vector>
-#include <array>
 #include <map>
-#include <cmath>
 
 using LineVec = std::vector<Line2D>;
 
