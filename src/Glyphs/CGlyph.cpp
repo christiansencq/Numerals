@@ -23,10 +23,10 @@ void CGlyph::draw(SDL_Renderer* renderer)
 {
     drawBkgd(renderer);
 
-    drawPlaceValue(renderer, onesElement);
-    drawPlaceValue(renderer, tensElement);
-    drawPlaceValue(renderer, hundsElement);
-    drawPlaceValue(renderer, thousElement);
+    drawPlaceValueCis(renderer, onesElement);
+    drawPlaceValueCis(renderer, tensElement);
+    drawPlaceValueCis(renderer, hundsElement);
+    drawPlaceValueCis(renderer, thousElement);
 }
 
 void CGlyph::drawBkgd(SDL_Renderer* renderer)
@@ -41,7 +41,7 @@ void CGlyph::drawBkgd(SDL_Renderer* renderer)
     SDL_RenderDrawLine(renderer, 100 + xOff, 0 + yOff, 100 + xOff, 300 + yOff);
 }
 
-void CGlyph::drawPlaceValue(SDL_Renderer* renderer, LineVec& glyph)
+void CGlyph::drawPlaceValueCis(SDL_Renderer* renderer, LineVec& glyph)
 {
     SDL_SetRenderDrawColor(renderer, 0x00, 0xAA, 0xFF, 0xFF);
 

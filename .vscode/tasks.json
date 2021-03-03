@@ -8,6 +8,7 @@
 			"args": [
 				"-ggdb",
 				"${workspaceFolder}/src/**.cpp",
+				"${workspaceFolder}/src/Glyphs/**.cpp",
 				"-o",
 				"${fileDirname}/${fileBasenameNoExtension}",
 				"-lSDL2",

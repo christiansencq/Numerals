@@ -14,12 +14,13 @@ public:
     KGlyph(int number, int xPos, int yPos);
     ~KGlyph() {}
 
-    void draw(SDL_Renderer* renderer) override;
-
     void findPlaceValues(int base) override;
-    void drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY) override;
+
+    void draw(SDL_Renderer* renderer) override;
     void drawBkgd(SDL_Renderer* renderer) override;
     void drawZero(SDL_Renderer* renderer, int xPos) override;
+    void drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY);
+
 
 private:
     int mNumber;

@@ -3,13 +3,14 @@
 #include <memory>
 #include <string>
 
+#include "State.h"
+#include "App.h"
+#include "TextObject.h"
 #include "Glyphs/Glyph.h"
 #include "Glyphs/CGlyph.h"
 #include "Glyphs/KGlyph.h"
 #include "Glyphs/MGlyph.h"
-#include "State.h"
-#include "App.h"
-#include "TextObject.h"
+
 
 class NumeralState : public State
 {
@@ -30,9 +31,9 @@ public:
 private:
     int mNum;
     std::string mNumStr;
-    std::unique_ptr<CGlyph> mCisGlyph;
-    std::unique_ptr<KGlyph> mKakGlyph;
-    std::unique_ptr<MGlyph> mMayGlyph;
+    std::unique_ptr<Glyph> mCisGlyph;
+    std::unique_ptr<Glyph> mKakGlyph;
+    std::unique_ptr<Glyph> mMayGlyph;
 
     //Text & Font
     TTF_Font* mNumFont = nullptr;

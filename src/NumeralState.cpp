@@ -1,10 +1,10 @@
 #include "NumeralState.h"
 
-NumeralState::NumeralState(SDL_Renderer* renderer) : mnoptrrenderer(renderer)
+NumeralState::NumeralState(SDL_Renderer* renderer) : mnoptrrenderer(renderer), mCisGlyph(nullptr), mKakGlyph(nullptr), mMayGlyph(nullptr)
 {
     //mFontTexture = std::make_unique<FontText>();
     srand(time(0));
-    mNum = rand() % 9999;
+    int mNum = rand() % 9999;
     mNumStr = std::to_string(mNum);
 
     mFontTexture = std::make_unique<TextObject>(renderer, mNumStr);

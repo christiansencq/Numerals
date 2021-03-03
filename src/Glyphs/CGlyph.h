@@ -18,16 +18,14 @@ public:
     CGlyph(int number, int xPos, int yPos);
     ~CGlyph() {}
 
-    void findPlaceValues(int base);
+    void findPlaceValues(int base) override;
 
     void draw(SDL_Renderer* renderer) override;
-
-    void drawPlaceValue(SDL_Renderer* renderer, LineVec& glyph);
-    void drawBkgd(SDL_Renderer* renderer);
-    void drawZero(SDL_Renderer* renderer, int PosOffset) {} 
+    void drawBkgd(SDL_Renderer* renderer) override;
+    void drawZero(SDL_Renderer* renderer, int PosOffset) override {} 
+    void drawPlaceValueCis(SDL_Renderer* renderer, LineVec& glyph);
 
     LineVec digitToElement(int digit);
-
     void orientPlaceValues() {}
     void flipHoriz(LineVec& glyph);
     void flipVert(LineVec& glyph);
