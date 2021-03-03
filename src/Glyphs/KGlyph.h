@@ -19,6 +19,7 @@ public:
     void draw(SDL_Renderer* renderer) override;
     void drawBkgd(SDL_Renderer* renderer) override;
     void drawZero(SDL_Renderer* renderer, int xPos) override;
+
     void drawPlaceValue(SDL_Renderer* renderer, int digit, int placeY);
 
 
