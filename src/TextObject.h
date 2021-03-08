@@ -4,19 +4,20 @@
 #include <cmath>
 #include <stdio.h>
 #include <memory>
+#include <iostream>
 #include <SDL2/SDL.h>
 #include <SDL2/SDL_image.h>
 #include <SDL2/SDL_ttf.h>
 
-class TextObject 
+class TextObject
 {
 public:
     TextObject(SDL_Renderer* renderer, std::string text);
     ~TextObject();
 
     bool loadFont();
-    bool loadFromRenderedText( SDL_Renderer* renderer, TTF_Font* font, std::string textureText, SDL_Color textColor);
-    //bool loadFromRenderedText( SDL_Renderer* renderer, TTF_Font* font, int number, SDL_Color textColor);
+    bool loadFromRenderedText( SDL_Renderer* renderer, TTF_Font* font, std::string textureText);
+
     void free();
 
     void render( SDL_Renderer* renderer, int x, int y, SDL_Rect* clip = NULL, double angle = 0.0, SDL_Point* center = NULL, SDL_RendererFlip flip = SDL_FLIP_NONE );
@@ -24,15 +25,19 @@ public:
     int getWidth() { return mWidth; }
     int getHeight() { return mHeight; }
 
+    //Set color
+    void setText(std::string text) { mText = text; }
+
 private:
     SDL_Texture* mTexture;//Texture to render
-    SDL_Surface* textSurface;//Surface to render on
+    SDL_Surface* mTextSurface;//Surface to render on
     
     std::string mText; //Actual words/characters that will be displayed.
     
     int mWidth;
     int mHeight;
 
+    SDL_Color* mColor;
     TTF_Font* mFont;
     SDL_Renderer* mnoptrRenderer;
     //TTF_Font* font = NULL;

@@ -17,6 +17,8 @@ public:
 
     ~MGlyph() {}
 
+    void reset(int newnum) override;
+
     void findPlaceValues(int base) override;
 
     void draw(SDL_Renderer* renderer) override;

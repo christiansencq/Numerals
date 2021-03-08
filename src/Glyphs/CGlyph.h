@@ -20,12 +20,14 @@ public:
 
     void findPlaceValues(int base) override;
 
+    void reset(int newnum) override;
+
     void draw(SDL_Renderer* renderer) override;
     void drawBkgd(SDL_Renderer* renderer) override;
     void drawZero(SDL_Renderer* renderer, int PosOffset) override {} 
     void drawPlaceValueCis(SDL_Renderer* renderer, LineVec& glyph);
 
-    LineVec digitToElement(int digit);
+//    LineVec digitToElement(int digit);
     void orientPlaceValues() {}
     void flipHoriz(LineVec& glyph);
     void flipVert(LineVec& glyph);

@@ -14,6 +14,8 @@ public:
     KGlyph(int number, int xPos, int yPos);
     ~KGlyph() {}
 
+    void reset(int newnum) override;
+
     void findPlaceValues(int base) override;
 
     void draw(SDL_Renderer* renderer) override;

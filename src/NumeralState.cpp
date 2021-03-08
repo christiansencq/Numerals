@@ -1,10 +1,11 @@
 #include "NumeralState.h"
 
+
 NumeralState::NumeralState(SDL_Renderer* renderer) : mnoptrrenderer(renderer), mCisGlyph(nullptr), mKakGlyph(nullptr), mMayGlyph(nullptr)
 {
     //mFontTexture = std::make_unique<FontText>();
     srand(time(0));
-    int mNum = rand() % 9999;
+    mNum = rand() % 9999;
     mNumStr = std::to_string(mNum);
 
     mFontTexture = std::make_unique<TextObject>(renderer, mNumStr);
@@ -12,40 +13,13 @@ NumeralState::NumeralState(SDL_Renderer* renderer) : mnoptrrenderer(renderer), m
     mCisGlyph = std::make_unique<CGlyph>(mNum, 500, 100);
     mKakGlyph = std::make_unique<KGlyph>(mNum, 10, 10);
     mMayGlyph = std::make_unique<MGlyph>(mNum, 100, 500);
-
-    if (!loadFont())
-    {
-        printf("Failed to load media!\n");
-    }
 }
 
 NumeralState::~NumeralState()
 {
     mFontTexture->free();
-}
-
-bool NumeralState::loadFont()
-{
-    bool success = true;
-
-    mNumFont = TTF_OpenFont("LiberationSerif-Regular.ttf", 28);
-
-    if ( mNumFont == nullptr )
-    {
-        printf("Failed to load the font %s\n", TTF_GetError());
-        success = false;
-    }
-    else
-    {
-        SDL_Color textColor = { 0, 55, 0 };
-        if ( !mFontTexture->loadFromRenderedText(mnoptrrenderer, mNumFont, mNumStr, textColor))
-        {
-            printf("Failed to render text texture!\n");
-            success = false;
-        }
-        TTF_CloseFont(mNumFont);
-    }
-    return success;
+    delete mTextColor;
+    mTextColor = nullptr;
 }
 
 void NumeralState::handleEvents()
@@ -57,7 +31,68 @@ void NumeralState::handleEvents()
     {
         case SDL_QUIT:
             App::Singleton().QuitApp();
+            break;
+        case SDL_KEYDOWN:
+            switch (event.key.keysym.sym)
+            {
+                case SDLK_ESCAPE:
+                    App::Singleton().QuitApp();
+                    break;
+                case SDLK_SPACE:
+                    newRandomNumber();
+                    break;
+                case SDLK_a:
+                    increment();
+                    break;
+                case SDLK_s:
+                    decrement();
+                    break;
+                default:
+                    break;
+            }
+        default:
+            break;
     }
+}
+
+void NumeralState::increment()
+{
+    if (mNum < 9999 )
+    {
+        mNum += 1;
+        refreshNum();
+    }
+}
+
+void NumeralState::decrement()
+{
+    if (mNum > 0)
+    {
+        mNum -= 1;
+        refreshNum();
+    }
+}
+
+void NumeralState::newRandomNumber()
+{
+    //Randomly generate a new number.
+    mNum = rand() % 9999;
+    refreshNum();
+}
+
+void NumeralState::refreshNum()
+{
+    //Update all the graphical displays.
+    mNumStr = std::to_string(mNum);
+
+    //Update the TextDisplay.
+    mFontTexture->setText(mNumStr);
+    mFontTexture->loadFont();
+
+    //Update the CGlyph, KGlyph, MGlyph displays
+    mCisGlyph->reset(mNum);
+    mKakGlyph->reset(mNum);
+    mMayGlyph->reset(mNum);
 }
 
 void NumeralState::update()

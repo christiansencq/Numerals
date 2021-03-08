@@ -14,6 +14,8 @@ class Glyph
 public:
     virtual ~Glyph() {}
 
+    virtual void reset(int newnum) = 0;
+
     virtual void findPlaceValues(int base) = 0;
 
     virtual void drawPlaceValue(SDL_Renderer* renderer, int digit, int PosOffset) {}

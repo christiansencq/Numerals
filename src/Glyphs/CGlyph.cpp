@@ -10,13 +10,19 @@ CGlyph::CGlyph() : CGlyph(2475)
 
 CGlyph::CGlyph(int number, int xPos, int yPos) : mNum(number), xOff(xPos), yOff(yPos)
 {
-    findPlaceValues(mNum);
+    findPlaceValues(10);
     std::cout << "number : " << mNum << std::endl;
 }
 
 CGlyph::CGlyph(int number) : CGlyph(number, 50, 50)
 {
     std::cout << "number (NOT CALLED?) : " << mNum << std::endl;
+}
+
+void CGlyph::reset(int newnum)
+{
+    mNum = newnum;
+    findPlaceValues(10);
 }
 
 void CGlyph::draw(SDL_Renderer* renderer)
@@ -51,12 +57,21 @@ void CGlyph::drawPlaceValueCis(SDL_Renderer* renderer, LineVec& glyph)
     }
 }
 
+
+
 void CGlyph::findPlaceValues(int base)
 {
-    thousElement = digitToElem[mNum / base*base*base];
-    hundsElement = digitToElem[(mNum / base*base) % base];
-    tensElement = digitToElem[(mNum / base) % base];
-    onesElement = digitToElem[mNum % base];
+    std::cout << "mNum in find place values: " << mNum << std::endl;
+
+    int thou = mNum / (base*base*base);    
+    int hund = (mNum / (base * base)) % base;
+    int tens = (mNum / base) % base;
+    int ones = mNum % base;
+
+    thousElement = digitToElem[thou];
+    hundsElement = digitToElem[hund];
+    tensElement = digitToElem[tens];
+    onesElement = digitToElem[ones];
 
     flipHoriz(tensElement);
     flipVert(hundsElement);

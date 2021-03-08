@@ -23,13 +23,18 @@ public:
     void update() override;
     void render(SDL_Renderer* renderer) override;
 
-    bool loadFont();//Add a fontname parameter
+    //bool loadFont();//Add a fontname parameter
 
-    //Scaling vars
+    void increment();
+    void decrement();
+    void newRandomNumber();
+    void refreshNum();
+    //Scaling vars  CHECK TO SEE IF CAN REMOVE
     static const int CGlyphscalar = 100;
 
 private:
     int mNum;
+
     std::string mNumStr;
     std::unique_ptr<Glyph> mCisGlyph;
     std::unique_ptr<Glyph> mKakGlyph;
@@ -37,8 +42,8 @@ private:
 
     //Text & Font
     TTF_Font* mNumFont = nullptr;
-//    TextObject* mFontTexture = nullptr;
     std::unique_ptr<TextObject> mFontTexture = nullptr;
+    SDL_Color* mTextColor = nullptr;
 
     SDL_Renderer* mnoptrrenderer;//Not owned, the renderer is from App; its passed in!
 };

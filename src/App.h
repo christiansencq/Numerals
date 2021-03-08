@@ -4,7 +4,6 @@
 #include "SDL2/SDL_image.h"
 #include "SDL2/SDL_ttf.h"
 #include "NumeralState.h"
-#include "InputHandler.h"
 
 #include <cassert>
 #include <iostream>
@@ -38,6 +37,4 @@ private:
     SDL_Renderer* renderer;//Make shared ptr?
     SDL_Window* window;
     std::vector<std::unique_ptr<State>> mStateStack;
-
-    InputHandler mInputHandler;
 };

@@ -16,6 +16,12 @@ KGlyph::KGlyph(int number) : KGlyph(number, 100, 100)
 }
 
 
+void KGlyph::reset(int newnum)
+{
+    mNumber = newnum;
+    findPlaceValues(mNumBase);    
+}
+
 void KGlyph::draw(SDL_Renderer* renderer) 
 {
     mnoRenderer = renderer;

@@ -14,7 +14,11 @@ MGlyph::MGlyph(int number) : MGlyph(number, 100, 100)
 {
 }
 
-
+void MGlyph::reset(int newnum)
+{
+    mNumber = newnum;
+    findPlaceValues(mNumBase);     
+}
 
 void MGlyph::draw(SDL_Renderer* renderer) 
 {
