@@ -23,8 +23,6 @@ public:
     void update() override;
     void render(SDL_Renderer* renderer) override;
 
-    //bool loadFont();//Add a fontname parameter
-
     void increment();
     void decrement();
     void newRandomNumber();
@@ -41,9 +39,7 @@ private:
     std::unique_ptr<Glyph> mMayGlyph;
 
     //Text & Font
-    TTF_Font* mNumFont = nullptr;
     std::unique_ptr<TextObject> mFontTexture = nullptr;
-    SDL_Color* mTextColor = nullptr;
 
     SDL_Renderer* mnoptrrenderer;//Not owned, the renderer is from App; its passed in!
 };

@@ -78,7 +78,6 @@ void App::Run()
 void App::PushState(std::unique_ptr<State> state)
 {
     assert(state && "Dont push nullptr as scene.");
-
     if (state)
     {
         state->init();

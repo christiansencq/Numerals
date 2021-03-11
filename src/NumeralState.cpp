@@ -18,8 +18,6 @@ NumeralState::NumeralState(SDL_Renderer* renderer) : mnoptrrenderer(renderer), m
 NumeralState::~NumeralState()
 {
     mFontTexture->free();
-    delete mTextColor;
-    mTextColor = nullptr;
 }
 
 void NumeralState::handleEvents()
@@ -57,7 +55,7 @@ void NumeralState::handleEvents()
 
 void NumeralState::increment()
 {
-    if (mNum < 9999 )
+    if ( mNum < 9999 )
     {
         mNum += 1;
         refreshNum();
@@ -66,7 +64,7 @@ void NumeralState::increment()
 
 void NumeralState::decrement()
 {
-    if (mNum > 0)
+    if ( mNum > 0 )
     {
         mNum -= 1;
         refreshNum();
@@ -88,6 +86,7 @@ void NumeralState::refreshNum()
     //Update the TextDisplay.
     mFontTexture->setText(mNumStr);
     mFontTexture->loadFont();
+    //mFontTexture->loadFromRenderedText(mnoptrrenderer, mNumFont, mNumStr);
 
     //Update the CGlyph, KGlyph, MGlyph displays
     mCisGlyph->reset(mNum);

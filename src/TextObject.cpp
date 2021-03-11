@@ -21,8 +21,6 @@ bool TextObject::loadFont()
 
     mFont = TTF_OpenFont("LiberationSerif-Regular.ttf", 28);
 
-    
-
     if ( mFont == 0 || mFont == nullptr )
     {
         printf("Failed to load the font %s\n", TTF_GetError());

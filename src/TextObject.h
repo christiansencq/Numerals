@@ -1,5 +1,6 @@
 #pragma once
 
+#include <sstream>
 #include <string>
 #include <cmath>
 #include <stdio.h>
@@ -27,11 +28,13 @@ public:
 
     //Set color
     void setText(std::string text) { mText = text; }
+    //void setText(std::stringstream text) { mText = text; }
 
 private:
     SDL_Texture* mTexture;//Texture to render
     SDL_Surface* mTextSurface;//Surface to render on
     
+    //std::stringstream mText;    
     std::string mText; //Actual words/characters that will be displayed.
     
     int mWidth;
@@ -40,5 +43,4 @@ private:
     SDL_Color* mColor;
     TTF_Font* mFont;
     SDL_Renderer* mnoptrRenderer;
-    //TTF_Font* font = NULL;
 };
