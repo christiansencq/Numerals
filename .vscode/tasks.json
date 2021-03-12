@@ -7,6 +7,8 @@
 			"command": "/usr/bin/g++",
 			"args": [
 				"-ggdb",
+				"-Wall",
+				"-pedantic",
 				"${workspaceFolder}/src/**.cpp",
 				"${workspaceFolder}/src/Glyphs/**.cpp",
 				"-o",

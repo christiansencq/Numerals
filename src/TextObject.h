@@ -31,16 +31,18 @@ public:
     //void setText(std::stringstream text) { mText = text; }
 
 private:
+    SDL_Renderer* mnoptrRenderer;
+
+    std::string mText; //Actual words/characters that will be displayed.
+
     SDL_Texture* mTexture;//Texture to render
     SDL_Surface* mTextSurface;//Surface to render on
     
     //std::stringstream mText;    
-    std::string mText; //Actual words/characters that will be displayed.
     
     int mWidth;
     int mHeight;
 
     SDL_Color* mColor;
     TTF_Font* mFont;
-    SDL_Renderer* mnoptrRenderer;
 };

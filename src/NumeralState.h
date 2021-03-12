@@ -34,6 +34,9 @@ private:
     int mNum;
 
     std::string mNumStr;
+
+    SDL_Renderer* mnoptrrenderer;//Not owned, the renderer is from App; its passed in!
+
     std::unique_ptr<Glyph> mCisGlyph;
     std::unique_ptr<Glyph> mKakGlyph;
     std::unique_ptr<Glyph> mMayGlyph;
@@ -41,5 +44,5 @@ private:
     //Text & Font
     std::unique_ptr<TextObject> mFontTexture = nullptr;
 
-    SDL_Renderer* mnoptrrenderer;//Not owned, the renderer is from App; its passed in!
+
 };

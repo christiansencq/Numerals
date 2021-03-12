@@ -51,7 +51,7 @@ void CGlyph::drawPlaceValueCis(SDL_Renderer* renderer, LineVec& glyph)
 {
     SDL_SetRenderDrawColor(renderer, 0x00, 0xAA, 0xFF, 0xFF);
 
-    for (int i = 0; i < glyph.size(); i++)
+    for (size_t i = 0; i < glyph.size(); i++)
     {
         SDL_RenderDrawLine(renderer, glyph[i].GetP0().GetX() + xOff, glyph[i].GetP0().GetY() + yOff, glyph[i].GetP1().GetX() + xOff, glyph[i].GetP1().GetY() + yOff);
     }
